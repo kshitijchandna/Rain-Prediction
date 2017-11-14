@@ -7,8 +7,8 @@ Created on Sat Apr  1 12:56:53 2017
 import xlrd
 import numpy as np
 import pandas as pd
-fle_loc="D:/X_Full.xlsx"
-wkb=xlrd.open_workbook('D:/X_Full.xlsx')
+fle_loc="Input Data/X_Full.xlsx"
+wkb=xlrd.open_workbook('Input Data/X_Full.xlsx')
 sheet=wkb.sheet_by_index(0)
 _matrix=[]
 for row in range (sheet.nrows):
@@ -19,8 +19,8 @@ for row in range (sheet.nrows):
 x=np.matrix(_matrix)
 #print(x.shape)
 
-fle_loc="D:/Y_train.xlsx"
-wkb=xlrd.open_workbook('D:/Y_Full.xlsx')
+fle_loc="Input Data/Y_train.xlsx"
+wkb=xlrd.open_workbook('Input Data/Y_Full.xlsx')
 sheet=wkb.sheet_by_index(0)
 _matrix=[]
 for row in range (sheet.nrows):
@@ -69,6 +69,6 @@ model1.compile(loss='mse',
               metrics=['acc'])
 model1.fit(x, y,batch_size=32,
                         nb_epoch=300, callbacks=[reduce_lr])
-model1.save('d:/model12.h5') 
+model1.save('/model12.h5') 
 model1.summary()
 print(model1.get_weights())
